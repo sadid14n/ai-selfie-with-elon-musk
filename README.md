@@ -32,7 +32,7 @@ ai-selfie-with-elon/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/ai-selfie-elon.git
+git clone https://github.com/sadid14n/ai-selfie-with-elon-musk.git
 cd ai-selfie-elon
 ```
 
