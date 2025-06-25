@@ -33,7 +33,7 @@ ai-selfie-with-elon/
 
 ```bash
 git clone https://github.com/sadid14n/ai-selfie-with-elon-musk.git
-cd ai-selfie-elon
+cd ai-selfie-with-elon-musk
 ```
 
 ### 2. Install dependencies
