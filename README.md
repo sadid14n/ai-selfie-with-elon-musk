@@ -21,7 +21,7 @@ Generate fun and realistic AI selfies with Elon Musk by uploading your own photo
 ## 📦 Project Structure
 
 ```
-ai-selfie-elon/
+ai-selfie-with-elon/
 ├── frontend/    # React application
 ├── backend/     # Express server
 └── README.md
