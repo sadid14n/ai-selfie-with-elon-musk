@@ -1,0 +1,6 @@
+POST http://localhost:3000/generate-selfie
+Content-Type: application/json
+
+{
+    "userImageUrl": "https://res.cloudinary.com/dplsiqv75/image/upload/v1736074028/cmjnb4j6y7rbqi9h2vu6.jpg"
+}
