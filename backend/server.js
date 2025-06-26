@@ -12,7 +12,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: "http://localhost:5174",
+    origin: "http://localhost:5173",
     credentials: true,
   })
 );
@@ -32,7 +32,7 @@ app.post("/generate-selfie", async (req, res) => {
         input: {
           face_image_path: userImageUrl,
           prompt:
-            "add elon musk to this user image look like both are taking selife together",
+            "add one elon musk photo to this user image look like both are taking selife together at outdoor in a hyper realistic way",
           negative_prompt:
             "extra people, third person, duplicate faces, multiple fans, blurry, crowd, bad quality",
           identitynet_strength_ratio: 1.0,
