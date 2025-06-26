@@ -13,6 +13,7 @@ app.use(express.json());
 app.use(
   cors({
     origin: "https://ai-selfie-with-elon-musk.vercel.app",
+    // origin: "http://localhost:5173",
     credentials: true,
   })
 );
@@ -32,9 +33,12 @@ app.post("/generate-selfie", async (req, res) => {
         input: {
           face_image_path: userImageUrl,
           prompt:
-            "add one elon musk photo to this user image look like both are taking selife together at outdoor a hyper realistic way",
+            "Merge this image with one realistic image of Elon Musk to create a hyper-realistic selfie where Elon Musk is standing next to the person in the image as if they are taking a selfie together outdoors. Make sure it looks like both are looking at the camera naturally with clear faces, good lighting, and no extra people.",
+          // "Add one image of elon musk to this image to look like elon musk clicking photo with the image person at outdoor in a hyper realistic way",
+          // negative_prompt:
+          //   "duplicate faces, not two elon musk image, double faces, desturctured faces, multiple person, blurry, crowd, bad quality",
           negative_prompt:
-            "extra people, third person, duplicate faces, multiple fans, blurry, crowd, bad quality",
+            "multiple elon musk, duplicate faces, multiple people, distorted face, low quality, blurry, crowd, unrealistic background, AI artifacts, weird hand, double person, incorrect shadows, strange eyes, photo mismatch, cartoon style",
           identitynet_strength_ratio: 1.0,
           guidance_scale: 9,
           num_inference_steps: 35,
@@ -95,9 +99,16 @@ cloudinary.config({
 app.post("/delete-user-image", async (req, res) => {
   try {
     const { publicId } = req.body;
+
     if (!publicId) return res.status(400).json({ error: "publicId required" });
 
-    await cloudinary.uploader.destroy(publicId);
+    const result = await cloudinary.uploader.destroy(publicId);
+    console.log(result);
+
+    if (result.result !== "ok") {
+      return res.status(404).json({ error: "Image not found" });
+    }
+
     res.status(200).json({ message: "Image deleted successfully" });
   } catch (error) {
     console.error("Cloudinary delete error:", error.message);
