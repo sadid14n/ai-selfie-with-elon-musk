@@ -12,7 +12,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: "https://ai-selfie-with-elon-musk.vercel.app/",
+    origin: "https://ai-selfie-with-elon-musk.vercel.app",
     credentials: true,
   })
 );
